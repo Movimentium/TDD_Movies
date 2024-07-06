@@ -1,5 +1,5 @@
 //
-//  MainVC.swift
+//  LibraryVC.swift
 //  TDD_Movies
 //
 //  Created by Miguel Gallego on 5/7/24.
@@ -7,8 +7,10 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+class LibraryVC: UIViewController {
 
+    @IBOutlet weak var tableVw: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

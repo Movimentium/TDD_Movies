@@ -58,5 +58,4 @@ final class MovieStructTests: XCTestCase {      // Press CMD + U
         XCTAssertNotEqual(movie1, movie2)
     }
     
-    
 }

@@ -71,4 +71,27 @@ final class MovieManagerTests: XCTestCase {
         
         XCTAssertEqual(testMovie.title, movieQueried.title)
     }
+    
+    // MARK: - Clearing & Resetting
+    func testClearArrays_ReturnsArrayCountsOfZero() {
+        sut.add(movie: testMovie)
+        sut.add(movie: testMovie2)
+        sut.checkOffMovie(atIndex: 0)
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 1)
+        XCTAssertEqual(sut.moviesSeenCount, 1)
+        
+        sut.clearArrays()
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 0)
+        XCTAssertEqual(sut.moviesSeenCount, 0)
+    }
+    
+    // MARK: - Duplicates
+    func testDuplicateMovies_ShouldNotBeAddedToArray() {
+        sut.add(movie: testMovie)
+        sut.add(movie: testMovie)
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 1)
+    }
 }
