@@ -8,17 +8,27 @@
 import Foundation
 
 final class MovieManager {
-    var moviesToSeeCount = 0
-    let moviesSeenCount = 0
+    var moviesToSeeCount: Int { moviesToSee.count }
+    var moviesSeenCount: Int { moviesSeen.count}
     
     private var moviesToSee: [Movie] = []
+    private var moviesSeen: [Movie] = []
     
     func add(movie: Movie) {
-        moviesToSeeCount += 1
         moviesToSee.append(movie)
     }
     
     func movie(atIndex idx: Int) -> Movie {
         return moviesToSee[idx]
+    }
+    
+    func checkOffMovie(atIndex idx: Int) {
+        guard idx < moviesToSeeCount else { return }
+        let checkedMovie = moviesToSee.remove(at: idx)
+        moviesSeen.append(checkedMovie)
+    }
+    
+    func checkedOffMovie(atIndex idx: Int) -> Movie {
+        return moviesSeen[idx]
     }
 }
