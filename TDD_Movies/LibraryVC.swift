@@ -10,11 +10,14 @@ import UIKit
 class LibraryVC: UIViewController {
 
     @IBOutlet weak var tableVw: UITableView!
-    
+    private let movieLibraryDataService = MovieLibraryDataService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        tableVw.dataSource = movieLibraryDataService
+        tableVw.delegate = movieLibraryDataService
+        print(#function)
     }
     
 

@@ -13,10 +13,11 @@ final class LibraryVCTests: XCTestCase {
     var sut: LibraryVC!
     
     override func setUpWithError() throws {
-        let sbName = "Main"
         let vcId = "\(LibraryVC.self)"
-        sut = UIStoryboard(name: sbName, bundle: nil).instantiateViewController(withIdentifier: vcId) as? LibraryVC
-        let _ = sut.view  // call sut.viewDidLoad()
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        sut = sb.instantiateViewController(withIdentifier: vcId) as? LibraryVC
+        let _ = sut.view  // call sut.viewDidLoad() then the tableVw is loaded
+ 
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -28,4 +29,23 @@ final class LibraryVCTests: XCTestCase {
     func testLibraryVC_TableVwShouldNotBeNil() {
         XCTAssertNotNil(sut.tableVw)
     }
+    
+    // MARK: - Data Source
+    func testDataSource_ViewDidLoad_SetsTableVwDataSource() {
+        XCTAssertNotNil(sut.tableVw.dataSource)
+        XCTAssertTrue(sut.tableVw.dataSource is MovieLibraryDataService)
+    }
+    
+    // MARK: - Delegate
+    func testDelegate_ViewDidLoad_SetsTableVwDelegate() {
+        XCTAssertNotNil(sut.tableVw.delegate)
+        XCTAssertTrue(sut.tableVw.delegate is MovieLibraryDataService)
+    }
+    
+    // MARK: - Data Service Assumptions
+    func testDataService_ViewDidLoad_SetsDataSourceAndDelegateToSameObject() {
+        XCTAssertEqual(sut.tableVw.dataSource as! MovieLibraryDataService,
+                       sut.tableVw.delegate as! MovieLibraryDataService)
+    }
+    
 }
