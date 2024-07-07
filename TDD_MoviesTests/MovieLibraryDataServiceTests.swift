@@ -42,15 +42,24 @@ final class MovieLibraryDataServiceTests: XCTestCase {
         XCTAssertEqual(sections, 2)
     }
     
-    func testTableVwSections_SectionOne_ReturnsMoviesToSeeCount() {
+    func testTableVwSections_SectionZero_ReturnsMoviesToSeeCount() {
         sut.movieManager?.add(movie: testMovie1)
         sut.movieManager?.add(movie: testMovie2)
-        
         XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 2)
         
         sut.movieManager?.add(movie: testMovie3)
         tableVw.reloadData()
-        
         XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 3)
+    }
+    
+    func testTableVwSections_SectionOne_ReturnsMoviesSeenCount() {
+        sut.movieManager?.add(movie: testMovie1)
+        sut.movieManager?.add(movie: testMovie2)
+        sut.movieManager?.checkOffMovie(atIndex: 0)
+        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 1)
+        
+        sut.movieManager?.checkOffMovie(atIndex: 0)
+        tableVw.reloadData()
+        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 2)
     }
 }

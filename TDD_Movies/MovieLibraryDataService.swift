@@ -7,6 +7,15 @@
 
 import UIKit
 
+enum LibrarySection: Int {
+    case moviesToSee
+    case moviesSeen
+    
+    init(section: Int) {
+        self = (section == 0 ? .moviesToSee : .moviesSeen)
+    }
+}
+
 final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var movieManager: MovieManager?
@@ -18,7 +27,12 @@ final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let movieManager else { return 0 }
-        return movieManager.moviesToSeeCount
+        return switch LibrarySection(section: section) {
+        case .moviesToSee:
+            movieManager.moviesToSeeCount
+        case .moviesSeen:
+            movieManager.moviesSeenCount
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
