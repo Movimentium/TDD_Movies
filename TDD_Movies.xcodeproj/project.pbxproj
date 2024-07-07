@@ -20,6 +20,7 @@
 		0CAB2B6A2C3823B400814E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAB2B692C3823B400814E79 /* LaunchScreen.storyboard */; };
 		0CCBD19D2C3AEC7600A71991 /* MovieLibraryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD19C2C3AEC7600A71991 /* MovieLibraryDataService.swift */; };
 		0CCBD1A02C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD19F2C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift */; };
+		0CCBD1A22C3B3F1600A71991 /* MovieVwCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD1A12C3B3F1600A71991 /* MovieVwCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0CAB2B692C3823B400814E79 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CCBD19C2C3AEC7600A71991 /* MovieLibraryDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLibraryDataService.swift; sourceTree = "<group>"; };
 		0CCBD19F2C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLibraryDataServiceTests.swift; sourceTree = "<group>"; };
+		0CCBD1A12C3B3F1600A71991 /* MovieVwCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVwCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				0CAB2B692C3823B400814E79 /* LaunchScreen.storyboard */,
 				0CAB2B652C38239000814E79 /* Main.storyboard */,
+				0CCBD1A12C3B3F1600A71991 /* MovieVwCell.swift */,
 				0C608FB32C39D86D00EFB8D0 /* Controllers */,
 				0C608FB22C39D84900EFB8D0 /* Models */,
 				0CCBD19B2C3AEC2F00A71991 /* Data Service */,
@@ -268,6 +271,7 @@
 				0CAB2B362C3822EB00814E79 /* AppDelegate.swift in Sources */,
 				0CAB2B682C3823A800814E79 /* LibraryVC.swift in Sources */,
 				0CCBD19D2C3AEC7600A71991 /* MovieLibraryDataService.swift in Sources */,
+				0CCBD1A22C3B3F1600A71991 /* MovieVwCell.swift in Sources */,
 				0C608FB92C39E0AA00EFB8D0 /* MovieManager.swift in Sources */,
 				0C608FB12C39D59D00EFB8D0 /* Movie.swift in Sources */,
 				0CAB2B382C3822EB00814E79 /* SceneDelegate.swift in Sources */,

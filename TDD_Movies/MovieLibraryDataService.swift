@@ -7,6 +7,8 @@
 
 import UIKit
 
+let kIdMovieCell = "idMovieCell"
+
 enum LibrarySection: Int {
     case moviesToSee
     case moviesSeen
@@ -36,7 +38,8 @@ final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: kIdMovieCell, for: indexPath)
+        return cell
     }
     
     // MARK: - Delegate
