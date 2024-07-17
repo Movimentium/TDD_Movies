@@ -38,7 +38,16 @@ final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kIdMovieCell, for: indexPath)
+        guard let movieManager else { fatalError("\(Self.self) \(#function) movieManager is nil!!") }
+        let cell = tableView.dequeueReusableCell(withIdentifier: kIdMovieCell, for: indexPath) as! MovieVwCell
+        switch LibrarySection(section: indexPath.section) {
+        case .moviesToSee:
+            let movie = movieManager.movieToSee(atIndex: indexPath.row)
+            cell.config(withMovie: movie)
+        case .moviesSeen:
+            let movie = movieManager.checkedOffMovie(atIndex: indexPath.row)
+            cell.config(withMovie: movie)
+        }
         return cell
     }
     

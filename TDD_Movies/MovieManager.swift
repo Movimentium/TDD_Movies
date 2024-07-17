@@ -19,7 +19,7 @@ final class MovieManager {
         moviesToSee.append(movie)
     }
     
-    func movie(atIndex idx: Int) -> Movie {
+    func movieToSee(atIndex idx: Int) -> Movie {
         return moviesToSee[idx]
     }
     

@@ -13,6 +13,7 @@ final class MovieLibraryDataServiceTests: XCTestCase {
     var sut: MovieLibraryDataService!
     var tableVw: UITableView!
     var libraryVC: LibraryVC!
+    var tableMock: TableVwMock!
     
     let testMovie1 = Movie(title: "Batman Begins", releaseDate: "2005")
     let testMovie2 = Movie(title: "Possessor", releaseDate: "2020")
@@ -21,6 +22,7 @@ final class MovieLibraryDataServiceTests: XCTestCase {
     override func setUpWithError() throws {
         sut = MovieLibraryDataService()
         sut.movieManager = MovieManager()
+        tableMock = TableVwMock.tableVwMock(withDataService: sut)
         
         let mainSb = UIStoryboard(name: "Main", bundle: nil)
         libraryVC = mainSb.instantiateViewController(withIdentifier: "\(LibraryVC.self)") as? LibraryVC
@@ -79,24 +81,27 @@ final class MovieLibraryDataServiceTests: XCTestCase {
     }
     
     func testCell_ShouldDequeueCell() {
-        let tableMock = TableVwMock()
-        tableMock.dataSource = sut
-        tableMock.register(MovieVwCell.self, forCellReuseIdentifier: kIdMovieCell)
         sut.movieManager?.add(movie: testMovie1)
         tableMock.reloadData()
         _ = tableMock.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertTrue(tableMock.cellDequeuedProperly)
     }
-}
-
-extension MovieLibraryDataServiceTests {
     
-    class TableVwMock: UITableView {
-        var cellDequeuedProperly = false
+    func testCell_SectionZeroConfig_ShouldSetCellData() {
+        sut.movieManager?.add(movie: testMovie1)
+        tableMock.reloadData()
+        let cell = tableMock.cellForRow(at: IndexPath(row: 0, section: 0)) as! MovieVwCellMock
+        XCTAssertEqual(cell.movieData, testMovie1)
+    }
+    
+    func testCell_SectionOneConfig_ShouldSetCellData() {
+        sut.movieManager?.add(movie: testMovie1)
+        sut.movieManager?.add(movie: testMovie2)
+        sut.movieManager?.checkOffMovie(atIndex: 0)
+        tableMock.reloadData()
         
-        override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
-            cellDequeuedProperly = true
-            return super.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        }
+        let cell = tableMock.cellForRow(at: IndexPath(row: 0, section: 1)) as! MovieVwCellMock
+        XCTAssertEqual(cell.movieData, testMovie1)
     }
 }
+

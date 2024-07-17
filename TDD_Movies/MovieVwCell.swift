@@ -20,4 +20,8 @@ class MovieVwCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func config(withMovie movie: Movie) {
+       // movieData = movie
+    }
+
 }

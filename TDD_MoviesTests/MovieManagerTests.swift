@@ -41,7 +41,7 @@ final class MovieManagerTests: XCTestCase {
     
     func testQuery_ReturnsMovieAtIndex() {
         sut.add(movie: testMovie)
-        let movieQueried = sut.movie(atIndex: 0)
+        let movieQueried = sut.movieToSee(atIndex: 0)
         
         XCTAssertEqual(testMovie.title, movieQueried.title)
     }
@@ -59,7 +59,7 @@ final class MovieManagerTests: XCTestCase {
         sut.add(movie: testMovie)
         sut.add(movie: testMovie2)
         sut.checkOffMovie(atIndex: 0)
-        let movieQueried = sut.movie(atIndex: 0)
+        let movieQueried = sut.movieToSee(atIndex: 0)
         
         XCTAssertEqual(movieQueried.title, testMovie2.title)
     }
