@@ -32,12 +32,7 @@ final class MovieLibraryDataServiceTests: XCTestCase {
         tableVw.dataSource = sut
         tableVw.delegate = sut
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        // Put setup code here. This method is called before the invocation of each test method in the class
     }
     
     override func tearDownWithError() throws {
@@ -102,6 +97,17 @@ final class MovieLibraryDataServiceTests: XCTestCase {
         
         let cell = tableMock.cellForRow(at: IndexPath(row: 0, section: 1)) as! MovieVwCellMock
         XCTAssertEqual(cell.movieData, testMovie1)
+    }
+    
+    func testCell_Selection_ShouldCheckOffSelectedMovie() {
+        sut.movieManager?.add(movie: testMovie1)
+        sut.movieManager?.add(movie: testMovie2)
+        tableVw.delegate?.tableView?(tableVw, didSelectRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertEqual(sut.movieManager?.moviesToSeeCount, 1)
+        XCTAssertEqual(sut.movieManager?.moviesSeenCount, 1)
+        XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 1)
+        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 1)
     }
 }
 

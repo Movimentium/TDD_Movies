@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0D6CF92C482091002106D3 /* MovieVwCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D6CF82C482091002106D3 /* MovieVwCellTests.swift */; };
 		0C608FAF2C39D39E00EFB8D0 /* MovieStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C608FAE2C39D39E00EFB8D0 /* MovieStructTests.swift */; };
 		0C608FB12C39D59D00EFB8D0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C608FB02C39D59D00EFB8D0 /* Movie.swift */; };
 		0C608FB72C39D8FC00EFB8D0 /* MovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C608FB62C39D8FC00EFB8D0 /* MovieManagerTests.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0D6CF82C482091002106D3 /* MovieVwCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVwCellTests.swift; sourceTree = "<group>"; };
 		0C608FAE2C39D39E00EFB8D0 /* MovieStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStructTests.swift; sourceTree = "<group>"; };
 		0C608FB02C39D59D00EFB8D0 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0C608FB62C39D8FC00EFB8D0 /* MovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManagerTests.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0D6CF72C482066002106D3 /* Test Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C0D6CF82C482091002106D3 /* MovieVwCellTests.swift */,
+			);
+			name = "Test Views";
+			sourceTree = "<group>";
+		};
 		0C608FB22C39D84900EFB8D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		0CAB2B4B2C3822ED00814E79 /* TDD_MoviesTests */ = {
 			isa = PBXGroup;
 			children = (
+				0C0D6CF72C482066002106D3 /* Test Views */,
 				0CCBD1A32C3B487D00A71991 /* Mocks */,
 				0CCBD19E2C3AF8C100A71991 /* Test Data Service */,
 				0C608FB52C39D8B300EFB8D0 /* Test Controllers */,
@@ -296,6 +307,7 @@
 				0CCBD1A02C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift in Sources */,
 				0C608FB72C39D8FC00EFB8D0 /* MovieManagerTests.swift in Sources */,
 				0C608FBB2C39F78100EFB8D0 /* LibraryVCTests.swift in Sources */,
+				0C0D6CF92C482091002106D3 /* MovieVwCellTests.swift in Sources */,
 				0CCBD1A52C3B489300A71991 /* MockExtensions.swift in Sources */,
 				0C608FAF2C39D39E00EFB8D0 /* MovieStructTests.swift in Sources */,
 			);

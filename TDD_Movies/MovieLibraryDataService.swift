@@ -52,5 +52,11 @@ final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableVie
     }
     
     // MARK: - Delegate
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let movieManager else { fatalError("\(Self.self) \(#function) movieManager is nil!!") }
+        if LibrarySection(section: indexPath.section) == .moviesToSee {
+            movieManager.checkOffMovie(atIndex: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 }
