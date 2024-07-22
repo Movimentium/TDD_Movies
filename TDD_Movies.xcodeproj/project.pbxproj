@@ -23,6 +23,7 @@
 		0CCBD1A02C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD19F2C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift */; };
 		0CCBD1A22C3B3F1600A71991 /* MovieVwCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD1A12C3B3F1600A71991 /* MovieVwCell.swift */; };
 		0CCBD1A52C3B489300A71991 /* MockExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD1A42C3B489300A71991 /* MockExtensions.swift */; };
+		0CD324FB2C4F18A300364EB9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD324FA2C4F18A300364EB9 /* DummyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		0CCBD19F2C3AF8F900A71991 /* MovieLibraryDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLibraryDataServiceTests.swift; sourceTree = "<group>"; };
 		0CCBD1A12C3B3F1600A71991 /* MovieVwCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVwCell.swift; sourceTree = "<group>"; };
 		0CCBD1A42C3B489300A71991 /* MockExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExtensions.swift; sourceTree = "<group>"; };
+		0CD324FA2C4F18A300364EB9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				0C608FB22C39D84900EFB8D0 /* Models */,
 				0CCBD19B2C3AEC2F00A71991 /* Data Service */,
 				0CAB2B3E2C3822EC00814E79 /* Assets.xcassets */,
+				0CD324FA2C4F18A300364EB9 /* DummyData.swift */,
 				0CAB2B432C3822EC00814E79 /* Info.plist */,
 				0CAB2B372C3822EB00814E79 /* SceneDelegate.swift */,
 				0CAB2B352C3822EB00814E79 /* AppDelegate.swift */,
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD324FB2C4F18A300364EB9 /* DummyData.swift in Sources */,
 				0CAB2B362C3822EB00814E79 /* AppDelegate.swift in Sources */,
 				0CAB2B682C3823A800814E79 /* LibraryVC.swift in Sources */,
 				0CCBD19D2C3AEC7600A71991 /* MovieLibraryDataService.swift in Sources */,

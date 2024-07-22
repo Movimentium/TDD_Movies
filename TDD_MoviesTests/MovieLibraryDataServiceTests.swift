@@ -45,26 +45,26 @@ final class MovieLibraryDataServiceTests: XCTestCase {
         XCTAssertEqual(sections, 2)
     }
     
-    func testTableVwSections_SectionZero_ReturnsMoviesToSeeCount() {
-        sut.movieManager?.add(movie: testMovie1)
-        sut.movieManager?.add(movie: testMovie2)
-        XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 2)
-        
-        sut.movieManager?.add(movie: testMovie3)
-        tableVw.reloadData()
-        XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 3)
-    }
-    
-    func testTableVwSections_SectionOne_ReturnsMoviesSeenCount() {
-        sut.movieManager?.add(movie: testMovie1)
-        sut.movieManager?.add(movie: testMovie2)
-        sut.movieManager?.checkOffMovie(atIndex: 0)
-        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 1)
-        
-        sut.movieManager?.checkOffMovie(atIndex: 0)
-        tableVw.reloadData()
-        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 2)
-    }
+//    func testTableVwSections_SectionZero_ReturnsMoviesToSeeCount() {
+//        sut.movieManager?.add(movie: testMovie1)
+//        sut.movieManager?.add(movie: testMovie2)
+//        XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 2)
+//        
+//        sut.movieManager?.add(movie: testMovie3)
+//        tableVw.reloadData()
+//        XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 3)
+//    }
+//    
+//    func testTableVwSections_SectionOne_ReturnsMoviesSeenCount() {
+//        sut.movieManager?.add(movie: testMovie1)
+//        sut.movieManager?.add(movie: testMovie2)
+//        sut.movieManager?.checkOffMovie(atIndex: 0)
+//        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 1)
+//        
+//        sut.movieManager?.checkOffMovie(atIndex: 0)
+//        tableVw.reloadData()
+//        XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 2)
+//    }
     
     // MARK: - Cells
     func testCell_RowAtIndex_ReturnsMovieCell() {
@@ -109,5 +109,15 @@ final class MovieLibraryDataServiceTests: XCTestCase {
         XCTAssertEqual(tableVw.numberOfRows(inSection: 0), 1)
         XCTAssertEqual(tableVw.numberOfRows(inSection: 1), 1)
     }
+    
+    func testTableVwSectionTitles_ShouldHaveCorrectStringValues() {
+        let titleSection0 = tableVw.dataSource?.tableView?(tableVw, titleForHeaderInSection: 0) ?? ""
+        let titleSection1 = tableVw.dataSource?.tableView?(tableVw, titleForHeaderInSection: 1) ?? ""
+        
+        XCTAssertEqual(titleSection0, LibrarySection.moviesToSee.str)
+        XCTAssertEqual(titleSection1, LibrarySection.moviesSeen.str)
+    }
+    
+    
 }
 

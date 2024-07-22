@@ -11,24 +11,23 @@ class LibraryVC: UIViewController {
 
     @IBOutlet weak var tableVw: UITableView!
     private let movieLibraryDataService = MovieLibraryDataService()
-
+    private let movieManager = MovieManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         tableVw.dataSource = movieLibraryDataService
         tableVw.delegate = movieLibraryDataService
+        movieLibraryDataService.movieManager = movieManager
+        
+        addDummyData()
+        tableVw.reloadData()
+        
         print(#function)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func addDummyData() {
+        DummyData.movies.forEach { movieManager.add(movie: $0) }
     }
-    */
+
 
 }

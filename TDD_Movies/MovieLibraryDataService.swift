@@ -16,6 +16,13 @@ enum LibrarySection: Int {
     init(section: Int) {
         self = (section == 0 ? .moviesToSee : .moviesSeen)
     }
+    
+    var str: String {
+        switch self {
+        case .moviesToSee: "Movies To See"
+        case .moviesSeen:  "Movies Seen"
+        }
+    }
 }
 
 final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableViewDelegate {
@@ -58,5 +65,9 @@ final class MovieLibraryDataService: NSObject, UITableViewDataSource, UITableVie
             movieManager.checkOffMovie(atIndex: indexPath.row)
             tableView.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return LibrarySection.init(section: section).str
     }
 }
