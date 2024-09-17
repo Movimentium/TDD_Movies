@@ -9,4 +9,6 @@ La pantalla consta de una `UITableView` con 2 secciones:
 
 Al tocar la fila de una _Movie to see_, ésta se mueve a la sección _Movies Seen_
 
-
+<p align="left">
+  <img src="TDD_Movies_Screenshot.png" width="350" title="hover text">
+</p>
